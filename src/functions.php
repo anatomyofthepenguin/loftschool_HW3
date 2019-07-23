@@ -82,16 +82,16 @@ function task3()
         $array[] = rand(1, 100);
     }
 
-    $fp = fopen('data.csv', 'a');
+    $fp = fopen('data.csv', 'a+');
     fputcsv($fp, $array);
-    fclose($fp);
+    rewind($fp);
 
-    $fp = fopen('data.csv', 'r');
     $dataArray = [];
 
     while ($str = fgetcsv($fp)) {
         $dataArray = array_merge($dataArray, $str);
     }
+
     fclose($fp);
 
     $arraySum = 0;
