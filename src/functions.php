@@ -58,6 +58,8 @@ function task2()
     if ($dataDecode2 !== $dataDecode) {
         echo "Элементы Отличные от первого массива";
         print_r(arrayDiff($dataDecode, $dataDecode2));
+    } else {
+        echo "Массивы равны";
     }
 }
 
