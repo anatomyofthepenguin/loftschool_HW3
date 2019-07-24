@@ -56,23 +56,18 @@ function task2()
     $dataDecode2 = json_decode($data2, true);
 
     if ($dataDecode2 !== $dataDecode) {
+        $diffValues = [];
+        foreach ($dataDecode as $key => $value) {
+            if ($dataDecode[$key] !== $dataDecode2[$key]) {
+                $diffValues[$key] = $value;
+            }
+        }
+
         echo "Элементы Отличные от первого массива";
-        print_r(arrayDiff($dataDecode, $dataDecode2));
+        print_r($diffValues);
     } else {
         echo "Массивы равны";
     }
-}
-
-function arrayDiff($array1, $array2)
-{
-    $diffValues = [];
-    foreach ($array1 as $key => $value) {
-        if ($array1[$key] !== $array2[$key]) {
-            $diffValues[$key] = $value;
-        }
-    }
-
-    return $diffValues;
 }
 
 function task3()
